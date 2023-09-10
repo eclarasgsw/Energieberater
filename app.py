@@ -30,9 +30,8 @@ def search():
       else:
         print("this string hasn't been found")
 
-
     print(filtered_data)
-    return render_template("search_results.html",
+    return render_template('home.html',
                            searched_string=searched_string,
                            filtered_data=filtered_data)
 

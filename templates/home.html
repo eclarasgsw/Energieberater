@@ -5,14 +5,40 @@
   {% include 'nav.html' %}
     <div class="w3-section w3-container">
       <div class="w3-container w3-content">
-
-        <h6 class="w3-opacity">Deine Adresse unten eingeben</h6>
+        <h1>Dein Energieberater</h1>
+        <h6 class="w3-opacity">Deine Adresse hier eingeben:</h6>
         <form action="/search" method="POST">
-          <input class="w3-input w3-border" type="text" placeholder="Adresse eingeben" name="query">
+          <input class="w3-input w3-border" type="text" placeholder="Adresse" name="query">
           <p>
-            <button class="w3-button w3-dark-grey" type="submit">Suchen</button>
+            <button class="w3-button w3-dark-grey" type="submit">Absenden</button>
           </p>
-        </form>    
+        </form>
+
+        {% if filtered_data %}
+        <p>Searched string: {{searched_string}}</p>
+        <table class="w3-table w3-card w3-striped">
+          <thead>
+            <tr>
+              <th>Adresse</th>
+              <th>Wärmegebiet</th>
+              <th>Solarpotential</th>
+              <th></th>
+            </tr>
+          </thead>
+        
+          <tbody>
+        <!-- Dynamic List in search_results Later -->            
+            {% for data in filtered_data %}
+            <tr>
+              <td>{{data['adresse']}}</td>
+              <td>{{data['waerme']}}</td>
+              <td>{{data['solar_potential']}}</td>
+              <td><a class="w3-button w3-black" href="https://outlook.office365.com/owa/calendar/ClaraEsteve@stadt.sg.ch/bookings/">Termin vereinbaren</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
       </div>
     </div>
   </body>
