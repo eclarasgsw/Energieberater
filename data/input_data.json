@@ -1,0 +1,14 @@
+[
+    {
+      "id":1,
+      "adresse": "Vadianstrasse 8, 9000 St.Gallen",
+      "waerme": "Fernwärme",
+      "solar_potential": "sehr gut"
+    },
+    {
+      "id":2,
+      "adresse": "Vadianstrasse 10, 9000 St.Gallen",
+      "waerme": "Holzheizung",
+      "solar_potential": "schlecht"
+    }
+  ]

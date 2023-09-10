@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  {% include 'head.html' %}
+  <table class="w3-table w3-card w3-striped">
+  <thead>
+    <tr>
+      <th>Adresse</th>
+      <th>Wärmegebiet</th>
+      <th>Solarpotential</th>
+      <th></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+<!-- Dynamic List in search_results Later -->            
+    {% for data in filtered_data %}
+    <tr>
+      <td>{{data['adresse']}}</td>
+      <td>{{data['waerme']}}</td>
+      <td>{{data['solar_potential']}}</td>
+      <td><a class="w3-button w3-black" href="https://outlook.office365.com/owa/calendar/ClaraEsteve@stadt.sg.ch/bookings/">Termin vereinbaren</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</html>

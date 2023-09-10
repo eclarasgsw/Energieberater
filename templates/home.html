@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  {% include 'head.html' %}
+  <body>
+  {% include 'nav.html' %}
+    <div class="w3-section w3-container">
+      <div class="w3-container w3-content">
+
+        <h6 class="w3-opacity">Deine Adresse unten eingeben</h6>
+        <form action="/search" method="POST">
+          <input class="w3-input w3-border" type="text" placeholder="Adresse eingeben" name="query">
+          <p>
+            <button class="w3-button w3-dark-grey" type="submit">Suchen</button>
+          </p>
+        </form>
+        
+        {% include 'search_results.html' %}
+    
+      </div>
+    </div>
+  </body>
+</html>
