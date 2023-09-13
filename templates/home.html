@@ -6,17 +6,36 @@
     <div class="w3-section w3-container">
       <div class="w3-container w3-content">
         <h1>Dein Energieberater</h1>
+        <!--<h2>Test h2</h2>
+        <h3>Test h3</h3>
+        <h4>Test h4</h4>-->
         <h6 class="w3-opacity">Deine Adresse hier eingeben:</h6>
         <form action="/search" method="POST">
-          <input class="w3-input w3-border" type="text" placeholder="Adresse" name="query">
+          <input class="custom-input"  tabindex="0" type="text" placeholder="Adresse" name="query">
           <p>
-            <button class="w3-button w3-dark-grey" type="submit">Absenden</button>
+            <button class="custom-button" type="submit">Absenden</button>
           </p>
         </form>
 
         {% if filtered_data %}
         <p>Searched string: {{searched_string}}</p>
-        <table class="w3-table w3-card w3-striped">
+
+         <div class="w3-row-padding w3-margin">
+            {% for data in filtered_data %}
+            <div class="w3-half">
+                <div class="w3-card">
+                    <img src="https://www.sgsw.ch/content/dam/bilder_library/sgsw-onlinewelt/products/sgsw_produkte_strom.svg" alt="{{ data.adresse }}" style="width:100%">
+                    <div class="w3-container">
+                        <h3>{{ data.adresse }}</h3>
+                        <p>Wärmestrategie Gebiet: {{ data.waerme }}</p>
+                        <p>Solar potential: {{ data.solar_potential }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <table class="w3-table w3-card w3-striped w3-mobile">
           <thead>
             <tr>
               <th>Adresse</th>
